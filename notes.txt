@@ -1,0 +1,119 @@
+########
+# TODO #
+########
+
+    V-Alter item and store tables to make item_id an integer
+        Need to kill and redefine the table before we add things to it
+    V-Add item_type table and set up with as many basic item types you can think of:
+        V-food
+            SUBTYPES
+            V-canned
+            V-dry
+            V-oil
+            V-beverage
+            V-ingredient (Thinking of spices, stock, vinegar, etc.)
+        V-toiletries
+            SUBTYPES
+            V-toothpaste
+            V-deo
+            V-shampoo
+            V-toilet paper
+        V-household goods/household
+            V-Windex/glass_cleaner
+            V-Clorox/bleach
+            V-paper towels
+    V-Add item_subtype table that's really just a crosswalk between item_type and more custom item_subtype
+    V-Populate item_sub_type with above subtypes for food, etc.
+    --Take full inventory of what's down there
+        By designated shelf
+    V-Decide on an initail layout
+        Trying for a grid layout from a generic web layout turtorial site
+            https://blog.hubspot.com/website/css-sidebar
+    O-Test and tweak look and interation until it's fine enough
+        V-Get a collapsable sidebar figured out
+        --Look into doing expandable cards
+            Want to maybe have one card be a category and then when you expand them it shows a list of what's there and how much there are of each
+                Not sure how I'm going to fit all the granular data, may not matter because we don't need to know the exact volume of an item as much as we need to know whether or not we have it
+            I think you might be able to just do a parent div with the category and then an inner div that's hidden that you can toggle visible by clicking on the parent
+            Should also figure out a gid or something
+                
+    V-Pick CSS palette
+        Going with a blue themed one from https://www.color-hex.com/color-palette/1022755
+    --Add 'appliance' to type table
+    --Add appliance related subtypes
+        --Blender
+        --Waffle Maker
+        --etc.
+    --Add 'kitchen' to type table
+    --Add subtypes for kitchen
+        --Baking sheet
+        --Pots
+        --Pans
+        --etc.
+    --Create Item table entries for products we will have/use and store a lot
+        --Dish soap from costco
+        --Mac and cheese boxes
+        --Coffee bags
+        --Cans of soup
+        --Cans of beans (and all the types: black, white)
+        V-Olive Oil
+        V-Toilet Paper
+        V-Paper Towels
+    --Create classes/figure out class structure for server side additions and data transfer
+        This will be used when we update values and the form contents are sent back to the server to be added to the db
+        BaseItem
+            ATTRS:
+                -quantity
+                -name
+            METHODS:
+                -set quantity
+                -set name (so we can edit it if we mess up the first time in the app)
+
+        Further item classes will add category attr or at least just specify some base attrs in the init for us
+    --Refit culler code (already in basement repo folder) to match what we want
+
+###########################
+# GENERAL NOTES AND PLAN: #
+###########################
+
+Basement project:
+    Flask app that shows contents of the basement store and allows users to edit the inventory values as well as add products and generate new item classes using form input.
+    Flask side
+        We have an app that allows users to have a quick look at the inventory and search it
+        There is another page or section or something where users can input a new item into the inventory
+            This should be made so that we can reuse data/establish user based 'profiles' which will just write classes extending whatever base classes we establish
+        --Look into code generation for the additional classes added by the user
+            Kind of want to do what they did at BHE where we generate the code and then have the machine read it into the app regularly/automatically
+                >>Basically just somehow have it re pull classes defined in a folder
+                >>  It might make sense to actually modify a single document with class definitions and then call it each time the store page loads or when the user is inputting new items
+                >>      Probably this but just for the user to 'access' form the item creation page, not from the inventory page
+                
+        --App frontend
+            --Inventory page
+                Needs to be able to do the following
+                    -Display inventory of items and quantities organized by product type or something
+                    -Allow the user to change the values of the products on the page
+                    -User should be able to use a search bar which 'instantly' narrows down the shown inventory items based on what they're typing
+                        Putting a lot of faith in Flask's and the pi's ability to talk to itself but it could work, my not be instant...
+                What is our look/layout?
+                    The side navbar I'm using at work might be good, but maybe have it be smaller (width)
+                        For the time being I think we can get away with having it be one page with many divs that are generated like Linkloader V1
+    Database
+        V-Get db established with tables
+            V-Items table
+                item_id
+                item_name
+                item_type
+                item_brand
+            V-Store table
+                item_id
+                item_name
+                quantity
+                unit_type
+                vol_per_unit
+                unit_vol
+                location
+        --Generate fake/initial values
+            Need to be in the basement to start or just go to costco's website
+
+

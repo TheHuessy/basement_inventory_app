@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <link rel="stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles.css') }}">
+    <link rel="script" type= "text/js" href= "{{ url_for('static',filename='js/sidebar.js') }}">
+    <script type="text/javascript" src="{{ url_for('static',filename='js/sidebar.js') }}"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basement Inventory</title>
+  </head>
+  <body>
+    <div class="nav-right visible-xs">
+      <div class="button" id="btn">
+        <div class="bar top"></div>
+        <div class="bar middle"></div>
+        <div class="bar bottom"></div>
+      </div>
+    </div>
+    <!-- nav-right -->
+    <main>
+      <nav>
+        <div class="nav-right hidden-xs">
+          <div class="button" id="btn">
+            <div class="bar top"></div>
+            <div class="bar middle"></div>
+            <div class="bar bottom"></div>
+          </div>
+        </div>
+        <!-- nav-right -->
+      </nav>
+
+      <a href="https://codepen.io/tonkec/" class="ua" target="_blank">
+        <i class="fa fa-user"></i>
+      </a>
+    </main>
+
+    <div class="sidebar">
+      <ul class="sidebar-list">
+        <li class="sidebar-item"><a href="#" class="sidebar-anchor">Item 1</a></li>
+        <li class="sidebar-item"><a href="#" class="sidebar-anchor">Item 2</a></li>
+        <li class="sidebar-item"><a href="#" class="sidebar-anchor">Item 3</a></li>
+        <li class="sidebar-item"><a href="#" class="sidebar-anchor">Item 4</a></li>
+      </ul>
+    </div>
+
+  </body>
+  <script>
+
+
+//function next_image(){
+//  $.ajax({
+//    type: 'GET',
+//    url: "/culler_get_api",
+//    data: {},
+//    dataType: "text",
+//    success: function(data){
+//      var json_data = JSON.parse(data)
+//      switch_image(json_data['loc'], json_data['table']);
+//    }
+//  });
+//}
+
+
+// function save_result(post_data){
+//   $.ajax({
+//     type: 'POST',
+//     url: `/culler_post_api?end_link=${post_data['end_link']}&table_name=${post_data['table_name']}&keep=${post_data['keep']}`,
+//     data: post_data,
+//     dataType: "text",
+//     success: function(data){
+//       console.log(`We posted the data! This is just the return result from the python side:`);
+//       console.log(data);
+//     }
+//  });
+//}
+
+// document.getElementById("main_img").addEventListener('touchstart', function (event) {
+//   touchstartX = event.changedTouches[0].screenX;
+//   touchstartY = event.changedTouches[0].screenY;
+// }, false);
+
+// document.getElementById("main_img").addEventListener('touchend', function (event) {
+//   touchendX = event.changedTouches[0].screenX;
+//   touchendY = event.changedTouches[0].screenY;
+//   handleGesture();
+// }, false);
+
+
+// function handleGesture() {
+//   var touch_diff = touchendX-touchstartX;
+//   var end_link = get_link_piece(document.getElementById("main_img").src);
+//   var table_name = get_link_piece(document.getElementById("main_img").name);
+
+//   if (touch_diff < -100) {
+//     post_data = {'end_link': end_link,
+//       'keep': 0,
+//       'table_name': table_name
+//     }
+
+//     save_result(post_data);
+//     document.getElementById("main_img").className = 'swipe-left'
+//     next_image();
+//   }
+
+//   if (touch_diff > 100) {
+//     post_data = {'end_link': end_link,
+//       'keep': 1,
+//       'table_name': table_name
+//     }
+
+//     save_result(post_data);
+//     document.getElementById("main_img").className = 'swipe-right'
+//     next_image();
+//   }
+
+//   if (touchendY === touchstartY) {
+//     console.log('Tap');
+//   }
+// }
+
+  </script>
+</html>
